@@ -1,4 +1,4 @@
 image:
-  file: Dockerfile
+  file: docker-compose
 ports:
- - port: 4040
+ - port: 8585
