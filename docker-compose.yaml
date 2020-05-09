@@ -3,9 +3,9 @@ version: "3.3"
 services:
   db:
     build:  ./mysql-deploy/
-    image:  mysql-docker:1.0
+    # image:  mysql-docker:1.0
     restart:  always
-    container_name: db
+    # container_name: db
     networks:
       - database        
     environment:
@@ -17,7 +17,7 @@ services:
 
   app:
     build:  .
-    image: nimhans-deploy:1.0
+    # image: nimhans-deploy:1.0
     depends_on:
       - db
     networks:
