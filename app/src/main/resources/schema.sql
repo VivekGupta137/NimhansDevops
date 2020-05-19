@@ -214,10 +214,6 @@ CREATE TABLE `users_auth`(
 
 SET FOREIGN_KEY_CHECKS=1;
 
-INSERT INTO `nimhans`.`users_auth` (`username`, `password`, `role`) VALUES ('doc_0', '$2a$10$v4CGBCwvFdi8CBr6fZNGFOsjpLX4g42QdyJAI/fAPM10KHuCorLAG', 'ROLE_DOCTOR');
-INSERT INTO `nimhans`.`users_auth` (`username`, `password`, `role`) VALUES ('doc_1', '$2a$10$v4CGBCwvFdi8CBr6fZNGFOsjpLX4g42QdyJAI/fAPM10KHuCorLAG', 'ROLE_DOCTOR');
-INSERT INTO `nimhans`.`users_auth` (`username`, `password`, `role`) VALUES ('doc_2', '$2a$10$v4CGBCwvFdi8CBr6fZNGFOsjpLX4g42QdyJAI/fAPM10KHuCorLAG', 'ROLE_DOCTOR');
-INSERT INTO `nimhans`.`users_auth` (`username`, `password`, `role`) VALUES ('doc_3', '$2a$10$v4CGBCwvFdi8CBr6fZNGFOsjpLX4g42QdyJAI/fAPM10KHuCorLAG', 'ROLE_DOCTOR');
-INSERT INTO `nimhans`.`users_auth` (`username`, `password`, `role`) VALUES ('doc_4', '$2a$10$v4CGBCwvFdi8CBr6fZNGFOsjpLX4g42QdyJAI/fAPM10KHuCorLAG', 'ROLE_DOCTOR');
+
 INSERT INTO `nimhans`.`users_auth` (`username`, `password`, `role`) VALUES ('admin', '$2a$10$j/1nhuz5asJ.evV6/tH4v.1m13iHmevNKd.0lIzis3I3Ufe1BLaki', 'ROLE_ADMIN');
 
