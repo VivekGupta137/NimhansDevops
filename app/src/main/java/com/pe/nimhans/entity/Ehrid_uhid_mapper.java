@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity 
 //@IdClass(MapperId.class)
 @Table(name = "ehrid_uhid_mapper")
@@ -19,13 +21,15 @@ public class Ehrid_uhid_mapper {
 
 
 	@OneToOne
-	@JoinColumn(name = "ehr_id")	
+	@JoinColumn(name = "ehr_id")
+	@JsonIgnore
 	private Patient patient;
 	
 	
 	@OneToOne
 	@JoinColumn(name = "uh_id")
 	private Demo demo;
+	
 	public Ehrid_uhid_mapper() {
 		   
 	}

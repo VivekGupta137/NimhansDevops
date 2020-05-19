@@ -7,11 +7,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import com.pe.nimhans.dao.DoctorRepository;
 import com.pe.nimhans.entity.Doctor;
 import com.pe.nimhans.entity.Encounter;
+import com.pe.nimhans.entity.User;
 
 @Repository
 public class DoctorServiceImpl implements DoctorService {
@@ -32,8 +34,13 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public void save(Doctor theDoctor) {
+	public int save(Doctor theDoctor) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		User theUser = theDoctor.getUsername();
+		if(theUser != null)
+			theUser.setPassword(encoder.encode(theUser.getPassword()));
 		repo.save(theDoctor);
+		return theDoctor.getEmp_id(); 
 	}
 
 	@Override

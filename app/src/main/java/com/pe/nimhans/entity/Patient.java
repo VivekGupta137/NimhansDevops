@@ -46,8 +46,9 @@ public class Patient {
 	List<Encounter> encounters;
 	
 	@OneToOne(mappedBy="patient")
-	@JsonIgnore
 	Ehrid_uhid_mapper ehrid_uhid;
+	
+	
 
 	public Ehrid_uhid_mapper getEhrid_uhid() {
 		return ehrid_uhid;

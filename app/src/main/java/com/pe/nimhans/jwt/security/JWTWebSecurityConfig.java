@@ -62,6 +62,10 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
             .exceptionHandling().authenticationEntryPoint(jwtUnAuthorizedResponseAuthenticationEntryPoint).and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
             .authorizeRequests()
+            .antMatchers("/admins/**").hasRole("ADMIN")
+            .antMatchers("/patients/**").hasRole("DOCTOR")
+            .antMatchers("/encounters/**").hasRole("DOCTOR")
+            .antMatchers("/doctors/**").hasRole("ADMIN")
             .anyRequest().authenticated();
 
        httpSecurity
@@ -81,6 +85,7 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 HttpMethod.POST,
                 authenticationPath
             )
+            .antMatchers(HttpMethod.GET, "/doctors/all")
             .antMatchers(
                     HttpMethod.POST,
                     registrationPath

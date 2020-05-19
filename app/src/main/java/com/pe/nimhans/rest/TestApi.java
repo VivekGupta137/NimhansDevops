@@ -32,6 +32,7 @@ public class TestApi {
 	@Autowired
 	DemoRepository demorepo;
 	
+	
 	@GetMapping("/getPatient/{uh_id}")
 	public Patient getPatientByUhid(@PathVariable Integer uh_id) {
 		System.out.println("\ngetPatientByUhid\n");

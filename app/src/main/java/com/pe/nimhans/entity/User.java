@@ -10,11 +10,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "users_auth")
@@ -22,20 +23,33 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
 	@Column
 	private String username;
 	
-	@Column
-	@JsonIgnore
+	@Column 
 	private String password;
 	
 	@Column
 	private String role;
 	
+	@Column
+	private boolean enabled=true;
+	
+	@OneToOne(mappedBy = "username")
+	private Doctor doctor;
+	
 //	Collection<? extends GrantedAuthority> authorities;
 	
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
+
 	public User() {
 		
 	}
@@ -64,7 +78,6 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.role = role;
-		
 //		Collection<SimpleGrantedAuthority> oldAuthorities = (Collection<SimpleGrantedAuthority>)SecurityContextHolder.getContext().getAuthentication().getAuthorities();
 //		SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role);
 //		List<SimpleGrantedAuthority> updatedAuthorities = new ArrayList<SimpleGrantedAuthority>();
@@ -108,9 +121,30 @@ public class User {
 		this.password = password;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	
+//	@JsonProperty("enabled")
+//	public boolean isEnabled() {
+//		return enabled;
+//	}
+//	
+//	@JsonProperty("enabled")
+//	public void setEnabled(boolean enabled) {
+//		this.enabled = enabled;
+//	}
+
+
 
 //	public Collection<? extends GrantedAuthority> getAuthorities() {
 //		List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();

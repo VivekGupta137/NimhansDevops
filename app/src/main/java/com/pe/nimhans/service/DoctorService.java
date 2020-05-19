@@ -11,7 +11,7 @@ import com.pe.nimhans.entity.Encounter;
 public interface DoctorService {
 	public List<Doctor> findAll(); // lists all the doctors
 	public Doctor findById(int id);
-	public void save(Doctor theDoctor);
+	public int save(Doctor theDoctor);
 	public void deleteById(int id);
 	public int findIdByName(String username);
 	public List<Encounter> getAllEncounters(int docId);

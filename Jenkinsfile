@@ -19,7 +19,7 @@ pipeline {
       }
       stage('building containers'){
           steps{
-              sh "sudo docker-compose push"
+              sh "sudo  docker-compose push"
           }
       }
    }

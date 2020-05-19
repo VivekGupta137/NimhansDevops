@@ -18,10 +18,12 @@ import com.pe.nimhans.entity.Encounter;
 import com.pe.nimhans.entity.NeurologicalDetails;
 import com.pe.nimhans.entity.Patient;
 import com.pe.nimhans.entity.PhysicalDetails;
+import com.pe.nimhans.entity.User;
 import com.pe.nimhans.service.DoctorService;
 import com.pe.nimhans.service.EncounterService;
 import com.pe.nimhans.service.PatientService;
 import com.pe.nimhans.service.UhidService;
+import com.pe.nimhans.service.UserService;
 
 @RestController
 @CrossOrigin(origins= {"http://localhost:4200","localhost:4200"})
@@ -36,13 +38,19 @@ public class DummyData {
 	UhidService uhserve;
 	@Autowired
 	DemoRepository demorepo;
+	@Autowired
+	UserService userService;
 	
 	@GetMapping("/add_dummy")
-	public String addDummy() {
+	public String addDummy() {		
 //		create 10 doctors
-		Doctor[] doc = new Doctor[10];		
+		Doctor[] doc = new Doctor[10];	
+//		create 10 users
+		User[] user = new User[10];	
 		for (int i = 0; i < 10; i++) { 
-			doc[i] = new Doctor("doc_"+i,"1000"+i,"doc_"+i+"@email.com","doc_"+i+"_addr");
+			doc[i] = new Doctor("doc_"+i,"1000"+i,"doc_"+i+"@email.com","doc_"+i+"_addr","neuro_department",8000+i);
+			user[i] = new User("user_"+i,"test123","ROLE_DOCTOR");
+			doc[i].setUsername(user[i]);
 			doctor.save(doc[i]);
 		}
 //		create 20 patients

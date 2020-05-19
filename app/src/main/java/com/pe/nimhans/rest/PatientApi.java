@@ -38,6 +38,14 @@ public class PatientApi {
 	public List<Doctor> getAllDoctors() {
 		return doctor.findAll();
 	}
+	@GetMapping("/doctors/{did}")
+	public Doctor getDoctorById(@PathVariable int did ) {
+		return doctor.findById(did);
+	}
+	@PostMapping("/doctors")
+	public int addDoctor(@RequestBody Doctor theDoctor) {		
+		return doctor.save(theDoctor);
+	}
 	
 	@GetMapping("/patients")
 	public List<Patient> getCurrentDoctorPatients() {
@@ -66,6 +74,7 @@ public class PatientApi {
 		
 		patient.save(thePatient);
 	}	
+	
 	
 	@PutMapping("/patients")
 	public void updatePatient(@RequestBody Patient thePatient) {

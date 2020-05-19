@@ -6,7 +6,7 @@ import java.io.*;
 public class TestBcrypt {
 	public static void main(String[] args) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		String str = "test123";
+		String str = "admin";
 		String encoded = encoder.encode(str);
 		System.out.println(str+" ==  "+encoded);
 	}	

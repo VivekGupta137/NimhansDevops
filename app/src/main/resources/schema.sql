@@ -43,6 +43,9 @@ CREATE TABLE `doctor`(
 	`dcontact` varchar(15) DEFAULT NULL,
 	`demail` varchar(20) DEFAULT NULL,
 	`daddress` varchar(50) DEFAULT NULL,
+    `department` varchar(50) DEFAULT NULL,
+    `unit`	int(11) DEFAULT NULL,
+	`username` int(11) DEFAULT NULL, 
     
 	PRIMARY KEY (`emp_id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
@@ -201,9 +204,10 @@ PRIMARY KEY (`neuro_id`)
 DROP TABLE IF EXISTS `users_auth`;
 CREATE TABLE `users_auth`(
 	`id` int(11) NOT NULL AUTO_INCREMENT,
-	`username` varchar(50) NOT NULL,
+	`username` varchar(50) NOT NULL, 
     `password` varchar(100) NOT NULL,
     `role` varchar(100) NOT NULL,
+    `enabled` tinyint(1) DEFAULT 1,
     
     PRIMARY KEY(`id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
@@ -215,4 +219,5 @@ INSERT INTO `nimhans`.`users_auth` (`username`, `password`, `role`) VALUES ('doc
 INSERT INTO `nimhans`.`users_auth` (`username`, `password`, `role`) VALUES ('doc_2', '$2a$10$v4CGBCwvFdi8CBr6fZNGFOsjpLX4g42QdyJAI/fAPM10KHuCorLAG', 'ROLE_DOCTOR');
 INSERT INTO `nimhans`.`users_auth` (`username`, `password`, `role`) VALUES ('doc_3', '$2a$10$v4CGBCwvFdi8CBr6fZNGFOsjpLX4g42QdyJAI/fAPM10KHuCorLAG', 'ROLE_DOCTOR');
 INSERT INTO `nimhans`.`users_auth` (`username`, `password`, `role`) VALUES ('doc_4', '$2a$10$v4CGBCwvFdi8CBr6fZNGFOsjpLX4g42QdyJAI/fAPM10KHuCorLAG', 'ROLE_DOCTOR');
+INSERT INTO `nimhans`.`users_auth` (`username`, `password`, `role`) VALUES ('admin', '$2a$10$j/1nhuz5asJ.evV6/tH4v.1m13iHmevNKd.0lIzis3I3Ufe1BLaki', 'ROLE_ADMIN');
 
