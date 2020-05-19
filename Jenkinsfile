@@ -32,6 +32,7 @@ pipeline {
        success {
             echo "stopping sql service forwarding this task to rundeck"
             sh "docker-compose down"
+            
             echo 'sending success the notification to rundeck'
             build job: 'rundeck'
        }
