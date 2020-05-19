@@ -12,7 +12,7 @@ pipeline {
           steps {
               echo 'cloning the NimhansDevops repository'
               git branch: 'master',
-                credentialsId: 'nimhansdevops',
+                credentialsId: 'git_nimhansdevops',
                 url: 'git@github.com:VivekGupta137/NimhansDevops.git'
               sh "ls -lat"
           }
