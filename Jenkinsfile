@@ -14,7 +14,7 @@ pipeline {
               git branch: 'master',
                 credentialsId: 'git_nimhansdevops',
                 url: 'git@github.com:VivekGupta137/NimhansDevops.git'
-              sh "ls -lat"
+              sh "ls -lat"  
           }
       }
       stage('Sql Service'){
