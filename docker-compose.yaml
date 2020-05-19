@@ -3,7 +3,7 @@ version: "3.3"
 services:
   db:
     build:  ./mysql-deploy/
-    # image:  mysql-docker:1.0
+    image:  vivekmt2019137/nimhans-mysql:1.0
     restart:  always
     # container_name: db
     networks:
@@ -17,7 +17,7 @@ services:
 
   app:
     build:  .
-    # image: nimhans-deploy:1.0
+    image: vivekmt2019137/nimhans-pe:1.0
     depends_on:
       - db
     networks:
