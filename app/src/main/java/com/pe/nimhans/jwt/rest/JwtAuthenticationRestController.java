@@ -25,7 +25,7 @@ import com.pe.nimhans.jwt.security.JwtTokenUtil;
 import com.pe.nimhans.jwt.security.JwtUserDetailsService;
 
 @RestController
-@CrossOrigin(origins= {"http://localhost:4200","localhost:4200","http://52.179.181.118:4500","52.179.181.118:4500"})
+@CrossOrigin /////////////////////////////////
 public class JwtAuthenticationRestController {
 
   @Value("${jwt.http.request.header}")
