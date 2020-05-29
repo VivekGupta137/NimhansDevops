@@ -28,7 +28,7 @@ import com.pe.nimhans.service.EncounterService;
 import com.pe.nimhans.service.PatientService;
 
 @RestController
-@CrossOrigin(origins= {"http://localhost:4200","localhost:4200"})
+@CrossOrigin(origins= {"http://localhost:4200","localhost:4200","http://52.179.181.118:4500"})
 public class EncounterApi {
 	@Autowired
 	PatientService patient;
