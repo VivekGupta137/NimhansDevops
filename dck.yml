@@ -1,0 +1,9 @@
+version: "3.3"
+
+services:
+  application:
+    image: guardian16/nimhans
+    ports:
+    - "4500:4500"
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock

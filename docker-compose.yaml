@@ -7,7 +7,7 @@ services:
     restart:  always
     # container_name: db
     networks:
-      - database        
+      - database
     environment:
       - MYSQL_DATABASE=nimhans
       - MYSQL_USER=spring
