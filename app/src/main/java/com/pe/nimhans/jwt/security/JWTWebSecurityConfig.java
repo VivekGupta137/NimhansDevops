@@ -80,7 +80,7 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
         //     .frameOptions().sameOrigin()  //H2 Console Needs this setting
         //     .cacheControl(); //disable caching
             
-        // httpSecurity.cors();
+        httpSecurity.cors();
     }
 
     @Override
