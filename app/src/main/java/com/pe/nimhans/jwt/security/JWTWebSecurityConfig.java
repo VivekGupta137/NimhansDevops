@@ -44,6 +44,8 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
       auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoderBean());
     }
 
+    
+
     @Bean
     public PasswordEncoder passwordEncoderBean() {
         return new BCryptPasswordEncoder();
@@ -55,6 +57,8 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
+    
+    
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
@@ -76,7 +80,7 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
         //     .frameOptions().sameOrigin()  //H2 Console Needs this setting
         //     .cacheControl(); //disable caching
             
-        httpSecurity.cors();
+        // httpSecurity.cors();
     }
 
     @Override
@@ -98,10 +102,10 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers(
                 HttpMethod.GET,
                 "/" //Other Stuff You want to Ignore
-            )
-            .and()
-            .ignoring()
-            .antMatchers("/h2-console/**/**");//Should not be in Production!
+            );
+            // .and()
+            // .ignoring()
+            // .antMatchers("/h2-console/**/**");//Should not be in Production!
     }
 }
 
