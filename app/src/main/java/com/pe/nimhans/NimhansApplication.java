@@ -20,7 +20,7 @@ public class NimhansApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("*/**").allowedOrigins("http://52.179.181.118:4500");
+				registry.addMapping("/**").allowedOrigins("http://52.179.181.118:4500");
 			}
 		};
 	}
