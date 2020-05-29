@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pe.nimhans.service.UserService;
 
 @RestController
-@CrossOrigin //(origins= {"http://localhost:4200","localhost:4200","http://52.179.181.118:4500","52.179.181.118:4500"})
+@CrossOrigin
 public class CurrentApi {
 	@Autowired
 	UserService user;
