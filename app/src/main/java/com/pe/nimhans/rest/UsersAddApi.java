@@ -19,7 +19,7 @@ import com.pe.nimhans.service.UserService;
 
 @RestController
 @RequestMapping("/users")
-@CrossOrigin
+@CrossOrigin(origins= {"http://localhost:4200","localhost:4200"})
 public class UsersAddApi {
 	@Autowired
 	UserService userService;

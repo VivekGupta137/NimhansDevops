@@ -26,7 +26,7 @@ import com.pe.nimhans.service.UhidService;
 import com.pe.nimhans.service.UserService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins= {"http://localhost:4200","localhost:4200"})
 public class DummyData {
 	@Autowired
 	PatientService patient;

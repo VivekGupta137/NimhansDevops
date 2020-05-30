@@ -19,7 +19,7 @@ import com.pe.nimhans.service.UhidService;
 
 @RestController
 @RequestMapping("/test")
-@CrossOrigin
+@CrossOrigin(origins= {"http://localhost:4200","localhost:4200"})
 public class TestApi {
 	@Autowired
 	PatientService patient;

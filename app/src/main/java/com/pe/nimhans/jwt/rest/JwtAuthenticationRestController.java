@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,7 +25,7 @@ import com.pe.nimhans.jwt.security.JwtTokenUtil;
 import com.pe.nimhans.jwt.security.JwtUserDetailsService;
 
 @RestController
-@CrossOrigin /////////////////////////////////
+@CrossOrigin(origins= {"http://localhost:4200","localhost:4200"})
 public class JwtAuthenticationRestController {
 
   @Value("${jwt.http.request.header}")
@@ -50,13 +49,8 @@ public class JwtAuthenticationRestController {
     final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 
     final String token = jwtTokenUtil.generateToken(userDetails);
-    JwtTokenResponse response = new JwtTokenResponse(token);
-    
-    HttpHeaders head = new HttpHeaders();
-    head.add("Access-Control-Allow-Origin", "*");
-    head.add("Access-Control-Allow-Methods","GET, OPTIONS, HEAD, PUT, POST");
-    
-    return ResponseEntity.ok().headers(head).body(response);
+
+    return ResponseEntity.ok(new JwtTokenResponse(token));
   }
   
   @RequestMapping(value = "${jwt.register.token.uri}", method = RequestMethod.POST)

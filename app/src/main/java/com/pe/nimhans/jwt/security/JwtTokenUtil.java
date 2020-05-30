@@ -17,7 +17,6 @@ import io.jsonwebtoken.Clock;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.DefaultClock;
-
 @Component
 public class JwtTokenUtil implements Serializable {
 
