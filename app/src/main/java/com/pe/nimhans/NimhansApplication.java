@@ -10,6 +10,6 @@ public class NimhansApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(NimhansApplication.class, args);
-	} 
+	}  
 
 }
