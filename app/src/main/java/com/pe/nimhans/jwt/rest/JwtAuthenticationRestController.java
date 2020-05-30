@@ -49,8 +49,8 @@ public class JwtAuthenticationRestController {
     final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 
     final String token = jwtTokenUtil.generateToken(userDetails);
-
-    return ResponseEntity.ok(new JwtTokenResponse(token));
+    JwtTokenResponse response = new JwtTokenResponse(token);
+    return ResponseEntity.ok(response);
   }
   
   @RequestMapping(value = "${jwt.register.token.uri}", method = RequestMethod.POST)
