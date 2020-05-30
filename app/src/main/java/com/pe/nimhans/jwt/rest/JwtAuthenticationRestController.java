@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -50,7 +51,12 @@ public class JwtAuthenticationRestController {
 
     final String token = jwtTokenUtil.generateToken(userDetails);
     JwtTokenResponse response = new JwtTokenResponse(token);
-    return ResponseEntity.ok(response);
+    
+    HttpHeaders head = new HttpHeaders();
+    head.add("Access-Control-Allow-Origin", "*");
+    head.add("Access-Control-Allow-Methods","GET, OPTIONS, HEAD, PUT, POST");
+    
+    return ResponseEntity.ok().headers(head).body(response);
   }
   
   @RequestMapping(value = "${jwt.register.token.uri}", method = RequestMethod.POST)
